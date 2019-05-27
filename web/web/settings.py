@@ -25,7 +25,7 @@ SECRET_KEY = 'dpns8dur67p-!=i*8+d@st9s&)@=eils1s9!vvusld7ztx$$+0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -117,4 +117,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+FORCE_SCRIPT_NAME = "/toxic"
+STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
