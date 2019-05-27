@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8010:8000"
+    command: >
+      bash -c "gunicorn --workers 4 web.wsgi --env SCRIPT_NAME=/toxic --bind 0.0.0.0:8000"
