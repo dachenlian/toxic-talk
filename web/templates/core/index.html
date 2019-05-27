@@ -6,20 +6,38 @@
             <div class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="seed" id="inputText" type="text">
+                        <input name="intext" id="inputText" type="text">
                         <label for="inputText">Seed</label>
                     </div>
                 </div>
             </div>
             <div class="col s12 center-align">
-                <button class="btn waves-effect waves-light" type="submit">Go</button>
+                <button class="btn waves-effect waves-light red" type="submit">Get bullied!</button>
             </div>
         </form>
     </div>
-    {% if result %}
+    {% if comments %}
     <div class="row">
         <div class="col s12">
-            <p class="flow-text">{{ result }}</p>
+{#        <h5>Input</h5>#}
+{#        <p class="flow-text">{{ intext }}</p>#}
+{#        <h5>Output</h5>#}
+            <table class="flow-text">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Comment</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in comments %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ c }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     {% endif %}

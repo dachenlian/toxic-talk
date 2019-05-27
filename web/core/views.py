@@ -11,15 +11,16 @@ class IndexView(View):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        text = request.POST.get('seed')
+        text = request.POST.get('intext')
         data = {
-            'seed': text,
+            'intext': text,
         }
-        r = request.post(
-            'url',
-            data=data,
-        )
+        r = requests.post(
+            'http://140.112.147.120:15000/textgen',
+            json=data,
+        ).json().get('comments')
         context = {
-            'result': r,
+            'comments': r,
+            'intext': text,
         }
         return render(request, self.template_name, context=context)
