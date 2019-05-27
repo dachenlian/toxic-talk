@@ -1,4 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-
+    <div class="row">
+        <form action="{% url 'core:index' %}" method="post">
+            {% csrf_token %}
+            <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="seed" id="inputText" type="text">
+                        <label for="inputText">Seed</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 center-align">
+                <button class="btn waves-effect waves-light" type="submit">Go</button>
+            </div>
+        </form>
+    </div>
+    {% if result %}
+    <div class="row">
+        <div class="col s12">
+            <p class="flow-text">{{ result }}</p>
+        </div>
+    </div>
+    {% endif %}
 {% endblock content %}
