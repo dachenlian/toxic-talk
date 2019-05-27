@@ -25,7 +25,7 @@ SECRET_KEY = 'dpns8dur67p-!=i*8+d@st9s&)@=eils1s9!vvusld7ztx$$+0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'lopen.linguistics.ntu.edu.tw', '140.112.147.121']
 
 
 # Application definition
