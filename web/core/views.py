@@ -21,11 +21,11 @@ class IndexView(View):
             'http://140.112.147.120:15000/textgen',
             json=data,
         ).json()
-        comments = r.get('comments')
+        generated = r.get('comments')
         sampled = r.get('sampled')
-        combined = list(zip_longest(comments, sampled, fillvalue=""))
         context = {
-            'combined': combined,
+            'generated': generated,
+            'sampled': sampled,
             'intext': text,
         }
         return render(request, self.template_name, context=context)

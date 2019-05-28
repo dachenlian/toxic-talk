@@ -16,31 +16,47 @@
             </div>
         </form>
     </div>
-    {% if combined %}
-    <div class="row">
-        <div class="col s12">
-{#        <h5>Input</h5>#}
-{#        <p class="flow-text">{{ intext }}</p>#}
-{#        <h5>Output</h5>#}
-            <table class="flow-text">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Comment</th>
-                    <th>Sampled</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for comment, sampled in combined %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ comment }}</td>
-                    <td>{{ sampled }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+    {% if generated %}
+        <div class="row">
+            <div class="col s12">
+                {#        <h5>Input</h5>#}
+                {#        <p class="flow-text">{{ intext }}</p>#}
+                {#        <h5>Output</h5>#}
+                <h3>Human</h3>
+                <table class="flow-text highlight">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Sampled</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for s in sampled %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ s }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <h3>Robot</h3>
+                <table class="flow-text highlight">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Generated</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for gen in generated %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ gen }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     {% endif %}
 {% endblock content %}
