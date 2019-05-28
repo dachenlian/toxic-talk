@@ -4,6 +4,8 @@ services:
   web:
     build: .
     restart: always
+    volumes:
+      - ./web:/app/web
     ports:
       - "8010:8000"
     command: >
