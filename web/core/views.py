@@ -1,3 +1,5 @@
+from itertools import zip_longest
+
 from django.shortcuts import render
 from django.views.generic import View
 
@@ -18,9 +20,12 @@ class IndexView(View):
         r = requests.post(
             'http://140.112.147.120:15000/textgen',
             json=data,
-        ).json().get('comments')
+        ).json()
+        comments = r.get('comments')
+        sampled = r.get('sampled')
+        combined = list(zip_longest(comments, sampled, fillvalue=""))
         context = {
-            'comments': r,
+            'combined': combined,
             'intext': text,
         }
         return render(request, self.template_name, context=context)
